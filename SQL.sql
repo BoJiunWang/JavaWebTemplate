@@ -42,7 +42,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('admin','0xd427a5b7398726e9757906f5540c15d31fd1ff37','管理','bobo8347@gmail.com',1);
+INSERT INTO `account` VALUES ('admin','0xd033e22ae348aeb5660fc2140aec35850c4da997','管理員','bobo8347@gmail.com',1);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
