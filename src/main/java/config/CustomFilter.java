@@ -7,12 +7,17 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by Ivan_Wang on 2017-07-02.
  */
+@WebFilter(
+    urlPatterns = {"/*"},
+    filterName = "setEncoding"
+)
 public class CustomFilter implements Filter {
 
   private String encoding = "utf-8";
@@ -28,11 +33,13 @@ public class CustomFilter implements Filter {
    */
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
       throws IOException, ServletException {
-    HttpServletResponse resp = (HttpServletResponse) response;
-    resp.addHeader("X-Frame-Options", "SAMEORIGIN");
-    resp.addHeader("X-XSS-Protection", "1; mode=block");
-    request.setCharacterEncoding(encoding);
-    filterChain.doFilter(new XssRequestWrapper((HttpServletRequest) request), response);
+    HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+    httpServletResponse.addHeader("X-Frame-Options", "SAMEORIGIN");
+    httpServletResponse.addHeader("X-XSS-Protection", "1; mode=block");
+    httpServletResponse.setCharacterEncoding(encoding);
+    HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+    httpServletRequest.setCharacterEncoding(encoding);
+    filterChain.doFilter(new XssRequestWrapper(httpServletRequest), httpServletResponse);
   }
 
   /**
@@ -48,6 +55,5 @@ public class CustomFilter implements Filter {
     }
   }
 
-  public void destroy() {
-  }
+  public void destroy() {}
 }
