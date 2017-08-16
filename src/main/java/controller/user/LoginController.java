@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
       userInfo =
           SqlDao.getUserInfoByLogin(
               request.getParameter("userAccount"),
-              Util.hashBySha1(request.getParameter("userPassword")));
+              request.getParameter("userPassword"));
     } catch (Exception e) {
       response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
       return;
