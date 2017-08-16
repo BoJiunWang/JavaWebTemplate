@@ -23,8 +23,7 @@ public class UserInfo implements Serializable {
     if (session.getAttribute("userInfo") == null) {
       return null;
     } else {
-      UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
-      return userInfo;
+      return (UserInfo) session.getAttribute("userInfo");
     }
   }
 

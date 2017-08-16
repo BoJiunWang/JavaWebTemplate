@@ -10,7 +10,7 @@ import org.owasp.esapi.ESAPI;
  */
 public class XssRequestWrapper extends HttpServletRequestWrapper {
 
-  public XssRequestWrapper(HttpServletRequest servletRequest) {
+  XssRequestWrapper(HttpServletRequest servletRequest) {
     super(servletRequest);
   }
 

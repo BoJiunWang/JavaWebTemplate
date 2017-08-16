@@ -2,7 +2,6 @@ package controller.user;
 
 import components.Logger;
 import components.UserInfo;
-import components.Util;
 import dao.SqlDao;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -28,12 +27,11 @@ public class LoginController extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     HttpSession session = request.getSession(true);
-    UserInfo userInfo = null;
+    UserInfo userInfo;
     try {
       userInfo =
           SqlDao.getUserInfoByLogin(
-              request.getParameter("userAccount"),
-              request.getParameter("userPassword"));
+              request.getParameter("userAccount"), request.getParameter("userPassword"));
     } catch (Exception e) {
       response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
       return;
@@ -42,7 +40,6 @@ public class LoginController extends HttpServlet {
       request.setAttribute("homeInfo", "帳號或密碼有誤");
       Logger.logInfo("帳號/密碼錯誤 IP", request.getRemoteAddr());
       request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
-      return;
     } else {
       userInfo.writeInfoToSession(session);
       response.sendRedirect("/");

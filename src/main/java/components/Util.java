@@ -19,10 +19,10 @@ public class Util {
     try {
       MessageDigest digest = java.security.MessageDigest.getInstance("SHA-1");
       digest.update(originalString.getBytes((Charset.forName("UTF-8"))));
-      byte[] messageDigest = digest.digest();
-      StringBuffer hexString = new StringBuffer();
-      for (int i = 0; i < messageDigest.length; i++) {
-        String shaHex = Integer.toHexString(messageDigest[i] & 0xFF);
+      byte[] messageDigests = digest.digest();
+      StringBuilder hexString = new StringBuilder();
+      for (byte messageDigest : messageDigests) {
+        String shaHex = Integer.toHexString(messageDigest & 0xFF);
         if (shaHex.length() < 2) {
           hexString.append(0);
         }

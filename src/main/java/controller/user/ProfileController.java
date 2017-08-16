@@ -41,11 +41,13 @@ public class ProfileController extends HttpServlet {
     String userName = ESAPI.encoder().canonicalize(request.getParameter("userName"));
     String userEmail = ESAPI.encoder().canonicalize(request.getParameter("userEmail"));
     try {
-      SqlDao.setUserInfo(userInfo.getUserAccount(), userName, userEmail);
-      userInfo.setUserName(userName);
-      userInfo.setUserEmail(userEmail);
-      userInfo.writeInfoToSession(session);
-      response.getWriter().write("Update Successful");
+      if (userInfo != null) {
+        SqlDao.setUserInfo(userInfo.getUserAccount(), userName, userEmail);
+        userInfo.setUserName(userName);
+        userInfo.setUserEmail(userEmail);
+        userInfo.writeInfoToSession(session);
+        response.getWriter().write("Update Successful");
+      }
     } catch (Exception e) {
       response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
     }
