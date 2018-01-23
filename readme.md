@@ -1,13 +1,17 @@
 ## Known Issue
-* 尚未處理CSRF
+* 尚未處理CSRF(ESAPI有相關API可以使用，若之後有空會導入)
 
 ## 環境設定  
+
+1. 開發階段將ESAPI.properties及validation.properties放入C:\Users\使用者名稱\esapi\資料夾底下
+即可正常使用  
+
+2. 佈署階段
 * 為順利使用OWASP ESAPI的XSS library，請在Tomcat的catalina.bat設定
 
 ```
 set "JAVA_OPTS=%JAVA_OPTS% -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.owasp.esapi.resources="D:\Program Files\Tomcat\webapps\ROOT\WEB-INF\classes""
 ```
-
 * -Dorg.owasp.esapi.resources路徑為網站部屬到Tomcat後ESAPI.properties和validation.properties兩個檔案的資料夾路徑
 
 ## Logger說明

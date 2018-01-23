@@ -34,8 +34,12 @@ public class CustomFilter implements Filter {
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
       throws IOException, ServletException {
     HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-    httpServletResponse.addHeader("X-Frame-Options", "SAMEORIGIN");
-    httpServletResponse.addHeader("X-XSS-Protection", "1; mode=block");
+    if (httpServletResponse.getHeader("X-Frame-Options") == null) {
+      httpServletResponse.addHeader("X-Frame-Options", "SAMEORIGIN");
+    }
+    if (httpServletResponse.getHeader("X-XSS-Protection") == null) {
+      httpServletResponse.addHeader("X-XSS-Protection", "1; mode=block");
+    }
     httpServletResponse.setCharacterEncoding(encoding);
     HttpServletRequest httpServletRequest = (HttpServletRequest) request;
     httpServletRequest.setCharacterEncoding(encoding);
@@ -55,5 +59,6 @@ public class CustomFilter implements Filter {
     }
   }
 
-  public void destroy() {}
+  public void destroy() {
+  }
 }
