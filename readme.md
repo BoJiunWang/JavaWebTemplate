@@ -3,10 +3,11 @@
 
 ## 環境設定  
 
-1. 開發階段將ESAPI.properties及validation.properties放入C:\Users\使用者名稱\esapi\資料夾底下
+1. 開發階段  
+將ESAPI.properties及validation.properties放入C:\Users\使用者名稱\esapi\資料夾底下
 即可正常使用  
 
-2. 佈署階段
+2. 佈署階段  
 * 為順利使用OWASP ESAPI的XSS library，請在Tomcat的catalina.bat設定
 
 ```

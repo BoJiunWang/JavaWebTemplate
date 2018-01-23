@@ -24,6 +24,7 @@ public class RootController extends HttpServlet {
       request.setAttribute("homeInfo", "Hi, This is Template.");
     } else {
       userInfo.writeInfoToSession(session);
+      request.setAttribute("homeInfo", "Hi, " + userInfo.getUserName());
       request.setAttribute("userInfo", userInfo);
     }
     request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
@@ -31,7 +32,7 @@ public class RootController extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+      throws IOException {
     response.sendRedirect("/");
   }
 }

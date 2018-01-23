@@ -27,7 +27,6 @@ public class ProfileController extends HttpServlet {
       Logger.logInfo("Unauthorized attempt to view the profile page IP", request.getRemoteAddr());
       response.sendRedirect("/");
     } else {
-      request.setAttribute("homeInfo", "Developing...");
       request.setAttribute("userInfo", userInfo);
       request.getRequestDispatcher("/WEB-INF/views/profile.jsp").forward(request, response);
     }
@@ -35,7 +34,7 @@ public class ProfileController extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+      throws IOException {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
     String userName = ESAPI.encoder().canonicalize(request.getParameter("userName"));
