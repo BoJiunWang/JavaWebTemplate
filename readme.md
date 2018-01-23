@@ -8,6 +8,7 @@
 即可正常使用  
 
 2. 佈署階段  
+
 * 為順利使用OWASP ESAPI的XSS library，請在Tomcat的catalina.bat設定
 
 ```
