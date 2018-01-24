@@ -56,7 +56,7 @@
             </div>
             <div class="clearfix">&nbsp;</div>
             <div class="col-sm-12 text-center">
-                <button id="submit" class="btn btn-primary btn-sm">
+                <button type="submit" class="btn btn-primary btn-sm">
                     <span class="oi oi-check"></span>
                     &nbsp;更改
                 </button>
@@ -83,7 +83,7 @@
           }
         });
         e.preventDefault();
-      });
+      })
     </script>
-  </jsp:attribute>
+    </jsp:attribute>
 </tag:pageTemplate>
