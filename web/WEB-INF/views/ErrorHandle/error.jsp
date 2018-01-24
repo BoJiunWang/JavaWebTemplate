@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="Description" content="Ivan Wang @ ISLab 2018">
-    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./resources/css/theme.css" rel="stylesheet">
-    <link href="./resources/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/theme.css" rel="stylesheet">
+    <link href="/resources/css/open-iconic-bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/ico" href="./resources/favicon.ico" sizes="32x32">
     <title>
         ${requestScope['javax.servlet.error.status_code']} | Template

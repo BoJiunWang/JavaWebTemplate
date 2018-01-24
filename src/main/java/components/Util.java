@@ -3,6 +3,7 @@ package components;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import org.owasp.esapi.ESAPI;
 
 /**
  * Created by Ivan_Wang on 2017-07-01.
@@ -35,4 +36,7 @@ public class Util {
     }
   }
 
+  public static String encodeForHTML(String originalString) {
+    return ESAPI.encoder().encodeForHTML(originalString);
+  }
 }

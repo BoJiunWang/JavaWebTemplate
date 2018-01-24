@@ -33,6 +33,6 @@ public class RootController extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-    response.sendRedirect("/");
+    response.sendRedirect("./");
   }
 }

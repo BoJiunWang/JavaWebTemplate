@@ -2,7 +2,7 @@
 <%@taglib prefix="tag" tagdir="/WEB-INF/tags" %>
 
 <tag:pageTemplate>
-    <jsp:attribute name="subtitle">首頁</jsp:attribute>
+    <jsp:attribute name="subtitle">編輯個人資料</jsp:attribute>
     <jsp:attribute name="container">
     <div class="text-center">
         <h2>
@@ -69,7 +69,7 @@
       $("#form").submit(function (e) {
         $.ajax({
           type: "POST",
-          url: "/Profile",
+          url: "./Profile",
           data: {
             userName: $("#userName").val(),
             userEmail: $("#userEmail").val()
@@ -79,7 +79,7 @@
             window.location.reload();
           },
           error: function (request, status, error) {
-            alert(error);
+            alert("Something wrong.");
           }
         });
         e.preventDefault();

@@ -27,7 +27,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container">
-        <a class="navbar-brand" href="/">Template</a>
+        <a class="navbar-brand" href="./">Template</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars"
                 aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -57,8 +57,8 @@
                            data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">${userInfo.getUserName()}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown">
-                            <a class="dropdown-item" href="/Profile">編輯個人資料</a>
-                            <a class="dropdown-item" href="/Logout">
+                            <a class="dropdown-item" href="./Profile">編輯個人資料</a>
+                            <a class="dropdown-item" href="./Logout">
                                 <span class="oi oi-account-logout"></span>&nbsp;Log out</a>
                         </div>
                     </li>
@@ -86,7 +86,7 @@
                 <div class="modal-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="signin">
-                            <form style="padding-top: 5px" method="post" action="/Login">
+                            <form style="padding-top: 5px" method="post" action="./Login">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="userName"
                                            name="userAccount"

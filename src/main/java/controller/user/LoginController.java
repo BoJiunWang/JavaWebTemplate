@@ -20,7 +20,7 @@ public class LoginController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-    response.sendRedirect("/");
+    response.sendRedirect("./");
   }
 
   @Override
@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
       request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
     } else {
       userInfo.writeInfoToSession(session);
-      response.sendRedirect("/");
+      response.sendRedirect("./");
     }
   }
 }
