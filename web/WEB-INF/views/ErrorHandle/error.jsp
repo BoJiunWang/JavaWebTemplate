@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
@@ -21,16 +22,42 @@
 <div class="container">
     <div class="jumbotron">
         <div class="container" align="center">
-            <h1 class="display-3">
+            <h1 class="display-4" style="word-wrap: break-word;">
                 Oops, error code: ${requestScope['javax.servlet.error.status_code']} <br>
             </h1>
-            <a href="javascript:history.back()" class="btn btn-success btn-lg">
-                <span class="oi oi-home"></span>&nbsp;Take Me Back
-            </a>
-            &nbsp;&nbsp;
-            <a href="mailto:bobo8347@gmail.com" class="btn btn-info btn-lg">
-                <span class="oi oi-envelope-closed"></span>&nbsp;Contact Support
-            </a>
+            <!-- 在中型和大型裝置中顯示 -->
+            <div class="d-none d-lg-block">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <a href="javascript:history.back()" class="btn btn-success btn-lg">
+                            <span class="oi oi-home"></span>&nbsp;Take Me Back
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="mailto:bobo8347@gmail.com" class="btn btn-info btn-lg">
+                            <span class="oi oi-envelope-closed"></span>&nbsp;Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 顯示於小型裝置 -->
+            <div class="d-lg-none">
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <a href="javascript:history.back()" class="btn btn-success btn">
+                            <span class="oi oi-home"></span>&nbsp;Take Me Back
+                        </a>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="col-sm-4">
+                        <a href="mailto:bobo8347@gmail.com" class="btn btn-info btn">
+                            <span class="oi oi-envelope-closed"></span>&nbsp;Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

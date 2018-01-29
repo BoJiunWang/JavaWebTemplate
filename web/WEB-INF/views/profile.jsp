@@ -1,4 +1,4 @@
-<%@page contentType="text/html; charset=UTF-8" session="false" %>
+<%@page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="tag" tagdir="/WEB-INF/tags" %>
 
 <tag:pageTemplate>
@@ -78,8 +78,8 @@
             alert(response);
             window.location.reload();
           },
-          error: function (request, status, error) {
-            alert("Something wrong.");
+          error: function () {
+            alert("Something goes wrong.");
           }
         });
         e.preventDefault();
