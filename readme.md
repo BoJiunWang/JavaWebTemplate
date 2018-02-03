@@ -1,7 +1,7 @@
 ## Introdution
 * Due to lab is not allowed to using framework like Spring..., but we need a simple template to devlopement quickly.
 * It's not a best template/design.
-* Everyone can fully access this project, it's means you can commit/merge it when you find some bug or not fittable to be a template for lab.
+* Everyone can fully access this project, it's means you can commit/merge it when you find some bug or think it not fittable for lab's project.
 
 ## Known Issue
 * 尚未處理CSRF(ESAPI有相關API可以使用，若之後有空會導入)
