@@ -36,7 +36,7 @@ public class Util {
     }
   }
 
-  public static String encodeForHTML(String originalString) {
+  public static String encodeForHtml(String originalString) {
     return ESAPI.encoder().encodeForHTML(originalString);
   }
 }

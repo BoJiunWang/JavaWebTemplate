@@ -14,11 +14,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="Description" content="Ivan Wang @ ISLab 2018">
-    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./resources/css/theme.css" rel="stylesheet">
-    <link href="./resources/css/open-iconic-bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/ico" href="./resources/favicon.ico" sizes="32x32">
+    <meta name="description" content="Ivan Wang @ ISLab 2018">
+    <meta name="author" content="Ivan Wang, bobo8347@gmail.com">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/theme.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="${pageContext.request.contextPath}/resources/favicon.ico" sizes="32x32">
     <title>
         <jsp:invoke fragment="subtitle"/>
         | Template
@@ -27,7 +28,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container">
-        <a class="navbar-brand" href="./">Template</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/">Template</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars"
                 aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,10 +37,10 @@
         <div class="collapse navbar-collapse" id="navbars">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/Info">Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/Info/Link">Link</a>
                 </li>
                 <jsp:invoke fragment="navContainer"/>
             </ul>
@@ -57,8 +58,8 @@
                            data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">${userInfo.getUserName()}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown">
-                            <a class="dropdown-item" href="./Profile">編輯個人資料</a>
-                            <a class="dropdown-item" href="./Logout">
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/Profile">編輯個人資料</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/Logout">
                                 <span class="oi oi-account-logout"></span>&nbsp;Log out</a>
                         </div>
                     </li>
@@ -86,7 +87,7 @@
                 <div class="modal-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="signin">
-                            <form style="padding-top: 5px" method="post" action="./Login">
+                            <form style="padding-top: 5px" method="post" action="${pageContext.request.contextPath}/Login">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="userName"
                                            name="userAccount"
@@ -121,9 +122,15 @@
     </div>
 </footer>
 
-<script src="./resources/js/jquery.min.js"></script>
-<script src="./resources/js/popper.min.js"></script>
-<script src="./resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('li.active').removeClass('active');
+    $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
+  });
+</script>
 <jsp:invoke fragment="script"/>
 
 <c:if test="${empty userInfo}">

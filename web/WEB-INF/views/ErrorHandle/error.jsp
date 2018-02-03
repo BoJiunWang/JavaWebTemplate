@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="Description" content="Ivan Wang @ ISLab 2018">
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/theme.css" rel="stylesheet">
-    <link href="/resources/css/open-iconic-bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/ico" href="/resources/favicon.ico" sizes="32x32">
+    <meta name="description" content="Ivan Wang @ ISLab 2018">
+    <meta name="author" content="Ivan Wang, bobo8347@gmail.com">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/theme.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="${pageContext.request.contextPath}/resources/favicon.ico" sizes="32x32">
     <title>
         ${requestScope['javax.servlet.error.status_code']} | Template
     </title>
@@ -16,7 +17,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container">
-        <a class="navbar-brand" href="/">Template</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/">Template</a>
     </div>
 </nav>
 <div class="container">
@@ -68,8 +69,8 @@
         </div>
     </div>
 </footer>
-<script src="/resources/js/jquery.min.js"></script>
-<script src="/resources/js/popper.min.js"></script>
-<script src="/resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -20,12 +20,12 @@ public class RootController extends HttpServlet {
       throws ServletException, IOException {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
-    if (userInfo == null) {
-      request.setAttribute("homeInfo", "Hi, This is Template.");
-    } else {
+    if (userInfo != null) {
       userInfo.writeInfoToSession(session);
       request.setAttribute("homeInfo", "Hi, " + userInfo.getUserName());
       request.setAttribute("userInfo", userInfo);
+    } else {
+      request.setAttribute("homeInfo", "Hi, This is Template.");
     }
     request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
   }
@@ -33,6 +33,6 @@ public class RootController extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-    response.sendRedirect("./");
+    response.sendRedirect(request.getContextPath() + "/");
   }
 }

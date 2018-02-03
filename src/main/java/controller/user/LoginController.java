@@ -20,7 +20,7 @@ public class LoginController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-    response.sendRedirect("./");
+    response.sendRedirect(request.getContextPath() + "/");
   }
 
   @Override
@@ -36,13 +36,13 @@ public class LoginController extends HttpServlet {
       response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
       return;
     }
-    if (userInfo == null) {
+    if (userInfo != null) {
+      userInfo.writeInfoToSession(session);
+      response.sendRedirect(request.getContextPath() + "/");
+    } else {
       request.setAttribute("homeInfo", "帳號或密碼有誤");
       Logger.logInfo("帳號/密碼錯誤 IP", request.getRemoteAddr());
       request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
-    } else {
-      userInfo.writeInfoToSession(session);
-      response.sendRedirect("./");
     }
   }
 }

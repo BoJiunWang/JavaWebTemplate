@@ -1,4 +1,4 @@
-package controller.user;
+package controller;
 
 import components.UserInfo;
 import java.io.IOException;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by Ivan_Wang on 2017-07-01.
+ * Created by Ivan_Wang on 2018-02-03.
  */
-@WebServlet(urlPatterns = {"/Logout"})
-public class LogoutController extends HttpServlet {
+@WebServlet(urlPatterns = {"/Info"})
+public class InfoController extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -21,15 +21,10 @@ public class LogoutController extends HttpServlet {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
     if (userInfo != null) {
-      request.setAttribute("homeInfo", "Bye, " + userInfo.getUserName());
-      userInfo.removeFromSession(session);
+      userInfo.writeInfoToSession(session);
+      request.setAttribute("homeInfo", "Welcome to Info.");
+      request.setAttribute("userInfo", userInfo);
       request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
     }
-  }
-
-  @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws IOException {
-    response.sendRedirect(request.getContextPath() + "/");
   }
 }

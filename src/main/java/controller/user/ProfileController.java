@@ -1,8 +1,7 @@
 package controller.user;
 
-import static components.Util.encodeForHTML;
+import static components.Util.encodeForHtml;
 
-import components.Logger;
 import components.UserInfo;
 import dao.SqlDao;
 import java.io.IOException;
@@ -24,10 +23,7 @@ public class ProfileController extends HttpServlet {
       throws ServletException, IOException {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
-    if (userInfo == null) {
-      Logger.logInfo("Unauthorized attempt to view the profile page IP", request.getRemoteAddr());
-      response.sendRedirect("./");
-    } else {
+    if (userInfo != null) {
       request.setAttribute("userInfo", userInfo);
       request.getRequestDispatcher("/WEB-INF/views/profile.jsp").forward(request, response);
     }
@@ -38,8 +34,8 @@ public class ProfileController extends HttpServlet {
       throws IOException {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
-    String userName = encodeForHTML(request.getParameter("userName"));
-    String userEmail = encodeForHTML(request.getParameter("userEmail"));
+    String userName = encodeForHtml(request.getParameter("userName"));
+    String userEmail = encodeForHtml(request.getParameter("userEmail"));
     try {
       if (userInfo != null) {
         SqlDao.setUserInfo(userInfo.getUserAccount(), userName, userEmail);

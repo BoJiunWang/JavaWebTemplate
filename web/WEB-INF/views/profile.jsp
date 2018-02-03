@@ -69,7 +69,7 @@
       $("#form").submit(function (e) {
         $.ajax({
           type: "POST",
-          url: "./Profile",
+          url: "${pageContext.request.contextPath}/Profile",
           data: {
             userName: $("#userName").val(),
             userEmail: $("#userEmail").val()
