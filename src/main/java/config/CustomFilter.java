@@ -29,7 +29,7 @@ public class CustomFilter implements Filter {
 
   private String encoding = "utf-8";
   private static final Set<String> EXCLUDED_PATHS = Collections.unmodifiableSet(new HashSet<>(
-      Arrays.asList("", "/", "/Login")));
+      Arrays.asList("", "/", "/Login", "/Info")));
 
   /**
    * Filter all url.

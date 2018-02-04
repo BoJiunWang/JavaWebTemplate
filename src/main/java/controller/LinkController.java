@@ -21,10 +21,9 @@ public class LinkController extends HttpServlet {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
     if (userInfo != null) {
-      userInfo.writeInfoToSession(session);
       request.setAttribute("homeInfo", "Welcome to Link.");
       request.setAttribute("userInfo", userInfo);
-      request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
     }
+    request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
   }
 }

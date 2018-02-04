@@ -23,8 +23,8 @@ public class LogoutController extends HttpServlet {
     if (userInfo != null) {
       request.setAttribute("homeInfo", "Bye, " + userInfo.getUserName());
       userInfo.removeFromSession(session);
-      request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
     }
+    request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
   }
 
   @Override

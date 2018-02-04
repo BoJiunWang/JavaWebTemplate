@@ -21,10 +21,11 @@ public class InfoController extends HttpServlet {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
     if (userInfo != null) {
-      userInfo.writeInfoToSession(session);
       request.setAttribute("homeInfo", "Welcome to Info.");
       request.setAttribute("userInfo", userInfo);
-      request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
+    } else {
+      request.setAttribute("homeInfo", "You need to login.");
     }
+    request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
   }
 }

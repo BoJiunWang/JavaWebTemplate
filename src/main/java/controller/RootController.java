@@ -21,7 +21,6 @@ public class RootController extends HttpServlet {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
     if (userInfo != null) {
-      userInfo.writeInfoToSession(session);
       request.setAttribute("homeInfo", "Hi, " + userInfo.getUserName());
       request.setAttribute("userInfo", userInfo);
     } else {
