@@ -65,7 +65,9 @@ public class CustomFilter implements Filter {
       httpServletRequest.setCharacterEncoding(encoding);
       filterChain.doFilter(new XssRequestWrapper(httpServletRequest), httpServletResponse);
     } else {
-      httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/");
+      httpServletRequest.setAttribute("homeInfo", "你沒有權限檢視此頁面");
+      httpServletRequest.getRequestDispatcher("/WEB-INF/views/index.jsp")
+          .forward(request, response);
     }
   }
 

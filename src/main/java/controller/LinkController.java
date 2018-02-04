@@ -20,10 +20,8 @@ public class LinkController extends HttpServlet {
       throws ServletException, IOException {
     HttpSession session = request.getSession(true);
     UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
-    if (userInfo != null) {
-      request.setAttribute("homeInfo", "Welcome to Link.");
-      request.setAttribute("userInfo", userInfo);
-    }
+    request.setAttribute("homeInfo", "這裡必須登入才可以看到!");
+    request.setAttribute("userInfo", userInfo);
     request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
   }
 }
