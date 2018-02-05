@@ -16,10 +16,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Ivan Wang @ ISLab 2018">
     <meta name="author" content="Ivan Wang, bobo8347@gmail.com">
-    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+          rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/theme.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/css/open-iconic-bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/ico" href="${pageContext.request.contextPath}/resources/favicon.ico" sizes="32x32">
+    <link href="${pageContext.request.contextPath}/resources/css/open-iconic-bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="icon" type="image/ico"
+          href="${pageContext.request.contextPath}/resources/favicon.ico" sizes="32x32">
     <title>
         <jsp:invoke fragment="subtitle"/>
         | Template
@@ -58,8 +61,10 @@
                            data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">${userInfo.getUserName()}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown">
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/Profile">編輯個人資料</a>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/Logout">
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/Profile">編輯個人資料</a>
+                            <a class="dropdown-item"
+                               href="${pageContext.request.contextPath}/Logout">
                                 <span class="oi oi-account-logout"></span>&nbsp;Log out</a>
                         </div>
                     </li>
@@ -87,7 +92,8 @@
                 <div class="modal-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="signin">
-                            <form style="padding-top: 5px" method="post" action="${pageContext.request.contextPath}/Login">
+                            <form style="padding-top: 5px" method="post"
+                                  action="${pageContext.request.contextPath}/Login">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="userName"
                                            name="userAccount"
@@ -126,7 +132,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $('li.active').removeClass('active');
     $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
   });

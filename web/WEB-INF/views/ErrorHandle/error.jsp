@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Ivan Wang @ ISLab 2018">
     <meta name="author" content="Ivan Wang, bobo8347@gmail.com">
-    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+          rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/theme.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/css/open-iconic-bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/ico" href="${pageContext.request.contextPath}/resources/favicon.ico" sizes="32x32">
+    <link href="${pageContext.request.contextPath}/resources/css/open-iconic-bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="icon" type="image/ico"
+          href="${pageContext.request.contextPath}/resources/favicon.ico" sizes="32x32">
     <title>
         ${requestScope['javax.servlet.error.status_code']} | Template
     </title>
