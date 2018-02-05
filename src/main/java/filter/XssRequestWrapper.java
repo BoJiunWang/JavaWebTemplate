@@ -1,4 +1,4 @@
-package config;
+package filter;
 
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
