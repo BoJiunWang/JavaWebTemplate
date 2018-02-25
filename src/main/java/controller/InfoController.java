@@ -23,7 +23,6 @@ public class InfoController extends HttpServlet {
     if (userInfo != null) {
       request.setAttribute("homeInfo",
           "Hi, " + userInfo.getUserName() + " 這裡的資訊不需要登入就可以看.");
-      request.setAttribute("userInfo", userInfo);
     } else {
       request.setAttribute("homeInfo", "這裡的資訊不需要登入就可以看.<br>帳密預設為admin.");
     }

@@ -1,5 +1,6 @@
 package filter;
 
+import components.UserInfo;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -10,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Ivan_Wang on 2017-07-02.
@@ -55,6 +57,16 @@ public class EncodingFilter implements Filter {
     httpServletResponse.setCharacterEncoding(encoding);
     HttpServletRequest httpServletRequest = (HttpServletRequest) request;
     httpServletRequest.setCharacterEncoding(encoding);
+    // 取得使用者資訊
+    HttpSession session = httpServletRequest.getSession(true);
+    UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
+    //取得URL Pattern
+    String path = httpServletRequest.getRequestURI()
+        .substring(httpServletRequest.getContextPath().length());
+    //如果有登入並且在Logout以外頁面，將userInfo加到Attribute
+    if (userInfo != null && !path.equals("/Logout")) {
+      httpServletRequest.setAttribute("userInfo", userInfo);
+    }
     filterChain.doFilter(new XssRequestWrapper(httpServletRequest), httpServletResponse);
   }
 

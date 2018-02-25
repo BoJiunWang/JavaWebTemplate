@@ -40,12 +40,6 @@ public class AuthorizationFilter implements Filter {
     HttpServletRequest httpServletRequest = (HttpServletRequest) request;
     HttpSession session = httpServletRequest.getSession(true);
     boolean isLogin = UserInfo.fetchInfoFromSession(session) != null;
-    if (httpServletResponse.getHeader("X-Frame-Options") == null) {
-      httpServletResponse.addHeader("X-Frame-Options", "SAMEORIGIN");
-    }
-    if (httpServletResponse.getHeader("X-XSS-Protection") == null) {
-      httpServletResponse.addHeader("X-XSS-Protection", "1; mode=block");
-    }
     if (isLogin) {
       filterChain.doFilter(new XssRequestWrapper(httpServletRequest), httpServletResponse);
     } else {

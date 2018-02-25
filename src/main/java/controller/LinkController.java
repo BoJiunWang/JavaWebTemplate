@@ -18,10 +18,7 @@ public class LinkController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    HttpSession session = request.getSession(true);
-    UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
     request.setAttribute("homeInfo", "這裡必須登入才可以看到!");
-    request.setAttribute("userInfo", userInfo);
     request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
   }
 }

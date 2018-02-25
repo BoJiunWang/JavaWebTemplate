@@ -21,12 +21,7 @@ public class ProfileController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    HttpSession session = request.getSession(true);
-    UserInfo userInfo = UserInfo.fetchInfoFromSession(session);
-    if (userInfo != null) {
-      request.setAttribute("userInfo", userInfo);
-      request.getRequestDispatcher("/WEB-INF/views/profile.jsp").forward(request, response);
-    }
+    request.getRequestDispatcher("/WEB-INF/views/profile.jsp").forward(request, response);
   }
 
   @Override
