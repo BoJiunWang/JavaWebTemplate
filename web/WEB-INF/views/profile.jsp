@@ -10,59 +10,65 @@
             &nbsp;編輯個人資料
         </h2>
     </div>
-    <form id="form">
-        <div class="align-items-center">
-            <div class="col-auto">
-                <label for="userAccount">
-                    使用者帳號
-                </label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span class="oi oi-person"></span>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form id="form">
+                <div class="align-items-center">
+                    <div class="col-auto">
+                        <label for="userAccount">
+                            使用者帳號
+                        </label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span class="oi oi-person"></span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" id="userAccount"
+                                   value="${userInfo.getUserAccount()}" readonly>
                         </div>
                     </div>
-                    <input type="text" class="form-control" id="userAccount"
-                           value="${userInfo.getUserAccount()}" readonly>
-                </div>
-            </div>
-            <div class="col-auto">
-                <label for="userName">
-                    使用者名稱
-                </label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span class="oi oi-person"></span>
+                    <div class="col-auto">
+                        <label for="userName">
+                            使用者名稱
+                        </label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span class="oi oi-person"></span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" id="userName"
+                                   value="${userInfo.getUserName()}" required>
                         </div>
                     </div>
-                    <input type="text" class="form-control" id="userName"
-                           value="${userInfo.getUserName()}" required>
-                </div>
-            </div>
-            <div class="col-auto">
-                <label for="userEmail">
-                    電子信箱地址
-                </label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span class="oi oi-envelope-closed"></span>
+                    <div class="col-auto">
+                        <label for="userEmail">
+                            電子信箱地址
+                        </label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span class="oi oi-envelope-closed"></span>
+                                </div>
+                            </div>
+                            <input type="email" class="form-control" id="userEmail"
+                                   value="${userInfo.getUserEmail()}" required>
                         </div>
                     </div>
-                    <input type="email" class="form-control" id="userEmail"
-                           value="${userInfo.getUserEmail()}" required>
+                    <div class="clearfix">&nbsp;</div>
+                    <div class="col-sm-12 text-center">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <span class="oi oi-check"></span>
+                            &nbsp;更改
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="clearfix">&nbsp;</div>
-            <div class="col-sm-12 text-center">
-                <button type="submit" class="btn btn-primary btn-sm">
-                    <span class="oi oi-check"></span>
-                    &nbsp;更改
-                </button>
-            </div>
+            </form>
         </div>
-    </form>
+        <div class="col-3"></div>
+    </div>
     </jsp:attribute>
     <jsp:attribute name="script">
     <script>
