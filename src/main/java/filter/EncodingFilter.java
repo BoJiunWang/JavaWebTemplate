@@ -54,6 +54,9 @@ public class EncodingFilter implements Filter {
     if (httpServletResponse.getHeader("X-XSS-Protection") == null) {
       httpServletResponse.addHeader("X-XSS-Protection", "1; mode=block");
     }
+
+    httpServletResponse.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
+
     httpServletResponse.setCharacterEncoding(encoding);
     HttpServletRequest httpServletRequest = (HttpServletRequest) request;
     httpServletRequest.setCharacterEncoding(encoding);
