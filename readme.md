@@ -6,6 +6,10 @@
 ## Known Issue
 * 尚未處理CSRF(ESAPI有相關API可以使用，若之後有空會導入)
 
+## 注意事項  
+
+1. web.xml中cookie-config選項預設關閉(否則會無法正常登入)，若系統會佈署到計網中心且使用https協定，記得將cookie-config啟用
+
 ## 環境設定  
 
 1. 開發階段  

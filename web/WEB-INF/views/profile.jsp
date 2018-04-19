@@ -11,8 +11,8 @@
         </h2>
     </div>
     <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6">
+        <div class="col-2"></div>
+        <div class="col-8">
             <form id="form">
                 <div class="align-items-center">
                     <div class="col-auto">
@@ -67,7 +67,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-3"></div>
+        <div class="col-2"></div>
     </div>
     </jsp:attribute>
     <jsp:attribute name="script">
